@@ -1,0 +1,93 @@
+.gr-button {
+  appearance: none;
+  outline: none;
+  border: 1px solid transparent;
+  border-radius: var(--cornerRadius);
+  padding: 0 28px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &__background {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: transparent;
+    transition: filter 0.25s;
+  }
+
+  &:hover &__background {
+    filter: brightness(80%);
+  }
+
+  &:active {
+    transform: scale(0.95) translateY(1px);
+  }
+
+  &__label {
+    position: relative;
+    z-index: 1;
+    user-select: none;
+  }
+
+  // Status modifier
+  
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  // Priority modifier
+  
+  &--primary &__background {
+    background-color: var(--primary);
+    border-color: var(--primary);
+  }
+
+  &--secondary &__background {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+  }
+
+  &--tertiary &__background {
+    background-color: var(--tertiary);
+    border-color: var(--tertiary);
+  }
+
+  // Size modifier
+  
+  &--large {
+    height: 58px;
+  }
+
+  &--medium {
+    height: 48px;
+  }
+
+  &--small {
+    height: 38px;
+  }
+
+  // Style modifier
+
+  &--boxed {
+
+    .gr-button__label {
+      color: white;
+    }
+    
+  }
+
+  &--outline {
+  }
+
+  &--negative {
+  }
+
+  &--inline {
+  }
+  
+}

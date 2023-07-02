@@ -1,0 +1,23 @@
+:host {
+
+  /* Font */
+  --defaultFont: 'Quicksand', sans-serif;
+
+  /* Colors (Priority) */
+  --primary: #2BBCBC;
+  --secondary: #7460EE;
+  --tertiary: #BC712B;
+
+  /* Border radius */
+  --cornerRadius: 5px;
+  
+}
+
+* {
+  font-family: var(--defaultFont);
+  font-weight: 500;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
