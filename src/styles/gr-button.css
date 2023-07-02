@@ -4,9 +4,14 @@
   border: 1px solid transparent;
   border-radius: var(--cornerRadius);
   padding: 0 28px;
-  cursor: pointer;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gr-button:not(.gr-button--loading) {
+  cursor: pointer;
 }
 .gr-button__background {
   display: block;
@@ -18,11 +23,11 @@
   background-color: transparent;
   transition: filter 0.25s;
 }
-.gr-button:hover .gr-button__background {
+.gr-button:hover:not(.gr-button--loading) .gr-button__background {
   filter: brightness(80%);
 }
-.gr-button:active {
-  transform: scale(0.95) translateY(1px);
+.gr-button:active:not(.gr-button--loading) {
+  transform: scale(0.97) translateY(1px);
 }
 .gr-button__label {
   position: relative;

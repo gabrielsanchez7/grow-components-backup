@@ -31,7 +31,7 @@
   <div class="section">
     <div class="row">
       <gr-button size="large" type="boxed" status="disabled" label="Disabled"></gr-button>
-      <gr-button size="large" type="boxed" status="loading" label="Loading"></gr-button>
+      <gr-button class="button-load" size="large" type="boxed" label="Click to load"></gr-button>
       <gr-button size="large" type="boxed" leading-icon="a" label="Leading icon"></gr-button>
       <gr-button size="large" type="boxed" trailing-icon="b" label="Trailing icon"></gr-button>
       <gr-button size="large" type="boxed" icon="c" label="Comprar"></gr-button>
@@ -120,5 +120,16 @@
       <gr-button size="small" type="boxed" loading label="Comprar"></gr-button>
     </div>
   </div>
+
+  <script>
+    const loadingButtons = document.querySelectorAll('.button-load')
+    Array.from(loadingButtons, it => {
+      it.addEventListener('click', e => {
+        const target = e.target
+        target.setAttribute('status', 'loading')
+      })
+    })
+  </script>
+  
 </body>
 </html>

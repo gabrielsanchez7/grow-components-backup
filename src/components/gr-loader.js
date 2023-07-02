@@ -1,9 +1,10 @@
-import { LitElement } from "lit";
+import { LitElement, html } from "lit";
 import globalStyles from "../styles/default.css" assert { type: 'css' }
+import styles from "../styles/gr-loader.css" assert { type: 'css' }
 
 export class GrLoader extends LitElement {
 
-  static styles = [globalStyles]
+  static styles = [globalStyles, styles]
 
   static properties = {
     /**
@@ -23,11 +24,13 @@ export class GrLoader extends LitElement {
   }
   
   customizeStyle() {
-    return {
-      borderWidth: `${this.thickness}px`,
-      height: `${this.size}px`,
-      width: `${this.size}px`
-    }
+    return [
+      `border-width: ${this.thickness ?? 3}px;`,
+      `height: ${this.size ?? 20}px;`,
+      `width: ${this.size ?? 20}px;`,
+      `border-color: ${this.color + '4D' ?? '#fff'};`,
+      `border-top-color: ${this.color ?? '#fff'};`
+    ].join(' ')
   }
 
   render() {

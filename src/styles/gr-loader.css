@@ -1,5 +1,5 @@
 .gr-loader {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -7,12 +7,9 @@
   display: inline-block;
   pointer-events: none;
   user-select: none;
-  height: 20px;
-  width: 20px;
   border-radius: 50%;
-  border: 3px solid rgba(var(--primary), 0.3);
-  border-top-color: var(--primary);
-  animation: gr-loader-indicator linear 0.6s infinite;
+  border-style: solid;
+  animation: gr-loader-indicator linear 0.7s infinite;
 }
 @keyframes gr-loader-indicator {
   from {

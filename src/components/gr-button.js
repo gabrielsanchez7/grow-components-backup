@@ -34,11 +34,18 @@ export class GrButton extends LitElement {
     status: { type: String }
   }
 
+  host
+
   constructor() {
     super()
     this.type = 'boxed'
     this.size = 'medium'
     this.priority = 'primary'
+  }
+
+  connectedCallback() {
+    super.connectedCallback()
+    this.host = document.querySelector('.gr-button')
   }
 
   getClassName() {
@@ -52,18 +59,24 @@ export class GrButton extends LitElement {
 
   setContentButton() {
     if(this.status == 'loading') {
-      return html`<gr-loader color="#fff"></gr-loader>`
+      return html`<gr-loader color="#ffffff"></gr-loader>`
     } else {
       return html`<span class="gr-button__label">${this.label}</span>`
     }
   }
 
+  handleClick() {
+    console.log(this.host)
+    // if(this.status == 'loading') {
+    //   console.log(this.host.offsetWidth)
+    // }
+  }
+
   render() {
     return html`
-      <button
-        class="${this.getClassName()}">
-        <span class="gr-button__background"></span>
-        ${this.setContentButton()}
+      <button @click=${this.handleClick} class="${this.getClassName()}">
+          <span class="gr-button__background"></span>
+          ${this.setContentButton()}
       </button>`
   }
   
