@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/b7219096b7.js" crossorigin="anonymous"></script>
   <script type="module" src="./index.js"></script>
   <style>
     html, body { height: 100%; }
@@ -32,7 +33,10 @@
     <div class="row">
       <gr-button size="large" type="boxed" status="disabled" label="Disabled"></gr-button>
       <gr-button class="button-load" size="large" type="boxed" label="Click to load"></gr-button>
-      <gr-button size="large" type="boxed" leading-icon="a" label="Leading icon"></gr-button>
+      <gr-button size="large" type="boxed" leading-icon="a" label="Leading icon">
+        <i slot="leading-icon" class="fa-solid fa-thumbs-up"></i>
+        <i slot="trailing-icon" class="fa-solid fa-thumbs-up"></i>
+      </gr-button>
       <gr-button size="large" type="boxed" trailing-icon="b" label="Trailing icon"></gr-button>
       <gr-button size="large" type="boxed" icon="c" label="Comprar"></gr-button>
     </div>
@@ -127,6 +131,8 @@
       it.addEventListener('click', e => {
         const target = e.target
         target.setAttribute('status', 'loading')
+
+        setTimeout(() => target.removeAttribute('status'), 3000)
       })
     })
   </script>

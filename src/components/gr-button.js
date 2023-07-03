@@ -35,6 +35,7 @@ export class GrButton extends LitElement {
   }
 
   host
+  hasIcon
 
   constructor() {
     super()
@@ -43,11 +44,15 @@ export class GrButton extends LitElement {
     this.priority = 'primary'
   }
 
-  connectedCallback() {
-    super.connectedCallback()
-    this.host = document.querySelector('.gr-button')
+  firstUpdated() {
+    this.host = this.renderRoot.querySelector('.gr-button')
   }
-
+  
+  shouldUpdate(changed) {
+    if(changed.has('status')) { this.handleLoading() }
+    return true
+  }
+  
   getClassName() {
     return modifiersToBem('button', [
       this.type,
@@ -61,15 +66,26 @@ export class GrButton extends LitElement {
     if(this.status == 'loading') {
       return html`<gr-loader color="#ffffff"></gr-loader>`
     } else {
-      return html`<span class="gr-button__label">${this.label}</span>`
+      return html`
+        <slot name="leading-icon" class="gr-button__leading-icon"></slot>
+        <span class="gr-button__label">${this.label}</span>
+        <slot name="trailing-icon" class="gr-button__trailing-icon"></slot>
+      `
     }
   }
 
+  handleLoading() {
+    if(this.status == 'loading') {
+      const sizes = this.host.getBoundingClientRect()
+      const width = sizes.width.toFixed(2)
+      this.host.style.width = `${width}px`
+    } else {
+      this.host?.style.removeProperty('width')
+    }
+  }
+  
   handleClick() {
-    console.log(this.host)
-    // if(this.status == 'loading') {
-    //   console.log(this.host.offsetWidth)
-    // }
+    
   }
 
   render() {

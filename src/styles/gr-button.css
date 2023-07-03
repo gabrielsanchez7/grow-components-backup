@@ -62,5 +62,10 @@
 .gr-button--boxed .gr-button__label {
   color: white;
 }
+.gr-button__leading-icon, .gr-button__trailing-icon {
+  color: white;
+  z-index: 1;
+  position: relative;
+}
 
 /*# sourceMappingURL=gr-button.css.map */

@@ -95,5 +95,13 @@
 
   &--inline {
   }
+
+  // Content
+
+  &__leading-icon, &__trailing-icon {
+    color: white;
+    z-index: 1;
+    position: relative;
+  }
   
 }
