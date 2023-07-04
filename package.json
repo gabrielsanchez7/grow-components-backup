@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "sass src/styles-scss:src/styles --watch & web-dev-server --node-resolve --watch"
+    "start": "web-dev-server --node-resolve --watch"
   },
   "keywords": [],
   "author": "",

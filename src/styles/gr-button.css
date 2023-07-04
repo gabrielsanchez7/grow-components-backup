@@ -1,3 +1,4 @@
+/* Default */
 .gr-button {
   appearance: none;
   outline: none;
@@ -9,10 +10,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 7px;
 }
+
 .gr-button:not(.gr-button--loading) {
   cursor: pointer;
 }
+
 .gr-button__background {
   display: block;
   height: 100%;
@@ -23,49 +27,60 @@
   background-color: transparent;
   transition: filter 0.25s;
 }
+
 .gr-button:hover:not(.gr-button--loading) .gr-button__background {
   filter: brightness(80%);
 }
+
 .gr-button:active:not(.gr-button--loading) {
   transform: scale(0.97) translateY(1px);
 }
+
 .gr-button__label {
   position: relative;
   z-index: 1;
   user-select: none;
 }
+
+/* Status */
 .gr-button--disabled {
   pointer-events: none;
   opacity: 0.4;
 }
-.gr-button--primary .gr-button__background {
-  background-color: var(--primary);
-  border-color: var(--primary);
+
+.gr-button--loading {
+  pointer-events: none;
 }
-.gr-button--secondary .gr-button__background {
-  background-color: var(--secondary);
-  border-color: var(--secondary);
-}
-.gr-button--tertiary .gr-button__background {
-  background-color: var(--tertiary);
-  border-color: var(--tertiary);
-}
+
+/* Sizes */
 .gr-button--large {
   height: 58px;
 }
+
 .gr-button--medium {
   height: 48px;
 }
+
 .gr-button--small {
   height: 38px;
 }
-.gr-button--boxed .gr-button__label {
+
+/* Styles and priority */
+.gr-button--boxed.gr-button--primary .gr-button__background {
+  background-color: var(--primary);
+}
+
+.gr-button--boxed.gr-button--primary .gr-button__label {
   color: white;
 }
-.gr-button__leading-icon, .gr-button__trailing-icon {
+
+.gr-button--outline .gr-button__label {
+  color: var(--primary);
+}
+
+.gr-button ::slotted([slot=leading-icon]), .gr-button ::slotted([slot=trailing-icon]) {
   color: white;
   z-index: 1;
   position: relative;
+  font-size: 20px;
 }
-
-/*# sourceMappingURL=gr-button.css.map */
